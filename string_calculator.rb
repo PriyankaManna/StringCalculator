@@ -3,6 +3,12 @@ class StringCalculator
     return 0 if numbers.empty?
 
     delimiter, numbers = parse_input(numbers)
+    negatives = numbers.split(delimiter).map(&:to_i).select { |num| num < 0 }
+
+    if negatives.any?
+      raise StandardError, "Negatives not allowed: #{negatives.join(', ')}"
+    end
+
     numbers.split(delimiter).map(&:to_i).sum
   end
 
