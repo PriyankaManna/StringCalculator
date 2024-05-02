@@ -9,7 +9,7 @@ class StringCalculator
       raise StandardError, "Negatives not allowed: #{negatives.join(', ')}"
     end
 
-    numbers.split(delimiter).map(&:to_i).sum
+    numbers.split(delimiter).map(&:to_i).reject { |num| num > 1000 }.sum
   end
 
   private

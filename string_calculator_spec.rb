@@ -49,5 +49,17 @@ RSpec.describe StringCalculator do
     it 'does not raise an exception for positive numbers' do
       expect { StringCalculator.add('1,2,3,4') }.not_to raise_error
     end
+
+    it 'ignores numbers larger than 1000' do
+      expect(StringCalculator.add('2,1001')).to eq(2)
+    end
+
+    it 'correctly sums numbers less than or equal to 1000' do
+      expect(StringCalculator.add('2,1000')).to eq(1002)
+    end
+
+    it 'ignores numbers larger than 1000' do
+      expect(StringCalculator.add('22,3420')).to eq(22)
+    end
   end
 end
