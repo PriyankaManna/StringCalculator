@@ -29,5 +29,13 @@ RSpec.describe StringCalculator do
     it 'handles new lines and commas mixed between numbers' do
       expect(StringCalculator.add("1\n2,3\n4,5")).to eq(15)
     end
+
+    it 'supports different delimiters with single character' do
+      expect(StringCalculator.add("//;\n1;2")).to eq(3)
+    end
+
+    it 'supports different delimiters with single character' do
+      expect(StringCalculator.add("//\n2;6")).to eq(8)
+    end
   end
 end
